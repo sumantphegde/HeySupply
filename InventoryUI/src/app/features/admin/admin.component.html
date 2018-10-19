@@ -1,0 +1,64 @@
+<div class="row" style="padding-top: 68px;padding-bottom: 5px; padding-left: 10px;"></div>
+<div class="container example2">
+<div class="">
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add user</button>-->
+
+<div class="modal fade" id="editModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit User</h4>
+      </div>
+      <div class="modal-body">
+        <form #inventoryForm = "ngForm" >
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" [(ngModel)]="editModel.firstname" class="form-control" id="firstname">
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" [(ngModel)]="editModel.lastname" class="form-control" id="lastname">
+        <label for="email">Email</label>
+        <input type="text" name="email" [(ngModel)]="editModel.email" class="form-control" id="email">
+        <label for="phone">Contact No</label>
+        <input type="text" name="phone" [(ngModel)]="editModel.contactno" class="form-control" id="phone">
+        <label for="Company">Company</label>
+        <input type="text" name="company"[(ngModel)]="editModel.company" class="form-control" id="company">
+        <label for="country">Country</label>
+        <input type="text" name="country" [(ngModel)]="editModel.country" class="form-control" id="country">
+        <div style="margin-left: 437px; margin-top: 12px;">
+        <button type="button" class="btn btn-default" (click)="onSubmit()" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--<div>
+<div class="table">-->
+<!--<table border="3" style="border:double" class="table table-hover table-inverse" border-color="grey">-->
+
+
+<p-dataTable [value]="users" [globalFilter]="gb" #dt>
+  <p-column field="firstname" [sortable]="true" header="First Name" [filter]="true" filterPlaceholder="Search"></p-column>
+  <p-column field="lastname" [sortable]="true" header="Last Name" [filter]="true" filterMatchMode="equals"></p-column>
+  <p-column field="email" [sortable]="true" [style]="{'width':'30%'}"header="Email" [filter]="false" filterMatchMode="equals"></p-column>
+  <p-column field="company" [sortable]="true" header="Company" [filter]="false" filterMatchMode="equals"></p-column>
+  <p-column field="country" [sortable]="true" header="Country" [filter]="false" filterMatchMode="equals"></p-column>
+  <p-column field="contactno" [sortable]="true" header="Contact Number" [filter]="false" filterMatchMode="equals"></p-column>
+
+  <p-column header="Action">
+    <ng-template let-row="rowData" pTemplate="body">
+      <button type="button" pButton (click)="updateRecord(row)" data-toggle="modal" data-target="#editModal"label="Edit"></button>
+    </ng-template>
+  </p-column>
+</p-dataTable>
+
+<!--</div>
+</div>-->
+</div>
+</div>
